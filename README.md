@@ -22,7 +22,8 @@ Just use M[i][j] = _GATE['or'] instead of M[i][j] = 6
 8. M[i][j] = 6 xor gate at node j
 9. M[i][j] = 7 xnor gate at node j
 
-#_GATE = {'0':0,
+# Dictionary
+_GATE = {'0':0,
          '1':1,
          'and':2,
          'nand':3,
