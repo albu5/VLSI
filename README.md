@@ -3,7 +3,7 @@ Created Git
 Create methods in python to generate graph (Adjacency Matrix) for:
 1. Decoder - Shashank
 2. Encoder - Sagun
-3. Multiplier - Ashish
+3. Adder - Ashish
 #4. Shardul (chose some for yourself)
 
 Adjacecny Matrix [M] conventions:
