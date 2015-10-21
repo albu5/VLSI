@@ -1,3 +1,9 @@
+# Updated Tasks
+Ashish: Write LUT mapping algo using maxflow/min cut
+Sagun: Write LUT mapping algo using bin packing approach
+Shashank: LUT Evaluation of Subgraph and DAG Evaluation
+Shardul: Generate graph for a shifter 
+
 # VLSI
 Created Git
 Create methods in python to generate graph (Adjacency Matrix) for:
