@@ -7,6 +7,7 @@
 #7. M[i][j] = 5 nor gate at node j
 #8. M[i][j] = 6 xor gate at node j
 #9. M[i][j] = 7 xnor gate at node j
+from __future__ import print_function
 import sys
 
 _GATE = {'0':0,
