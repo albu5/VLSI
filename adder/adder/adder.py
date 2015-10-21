@@ -118,6 +118,10 @@ def generateAddder(size, _GATE):
 
 grmat, topo, pi = generateAddder(4, _GATE)
 
+print topo
+print pi
+
+
 for rows in grmat:
     for nodes in rows:
         if(nodes == 9):

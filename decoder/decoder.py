@@ -14,7 +14,7 @@ def generateDecoder(n, _GATE):
 
 	nMatrix = n+n+(1<<n)
 
-	mat  = [[-1 for i in range(nMatrix)]for i in range(nMatrix)]
+	mat  = [[0 for i in range(nMatrix)]for i in range(nMatrix)]
 	# mat is the adjacency matrix which contains the decription for DAG defining a decoder
 
 	# Defining first layer connections of NOT gates of each input
@@ -27,6 +27,16 @@ def generateDecoder(n, _GATE):
 	# The inputs of AND gate will be according to boolean representation of its index in Decoder Outputs
 	# xth Decoder output will be AND gate with 0 meaning connection from input or 1 meaning connection from input bar
 
+	pi = [];
+	topo = [];
+
+	for i in range(n):
+		pi.append(i)
+
+	for i in range(nMatrix):
+		topo.append(i)
+
+
 	for x in range(1<<n):
 		temps = bin(x)[2:].zfill(n)
 		tempi = map(int, temps) 
@@ -38,15 +48,18 @@ def generateDecoder(n, _GATE):
 			elif tempi[y] == 1 :
 				mat[y][2*n+x] = _GATE['and']
 
-	return mat
+	return mat,topo,pi
 
-mat_test = generateDecoder(4, _GATE)
+n=3
+grmat,topo,pi = generateDecoder(n, _GATE)
+
+nMatrix = n+n+(1<<n)
 
 for z in range(nMatrix):
-	print(mat_test[z])
+	print(grmat[z])
 
-
-
+print topo
+print pi
 
 
 

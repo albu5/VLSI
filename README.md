@@ -4,6 +4,8 @@ Sagun: Write LUT mapping algo using bin packing approach
 Shashank: LUT Evaluation of Subgraph and DAG Evaluation
 Shardul: Generate graph for a shifter 
 
+Everyone for each DAG Adjacency Matrix, also output topologial order and primary input nodes.
+
 # VLSI
 Created Git
 Create methods in python to generate graph (Adjacency Matrix) for:
