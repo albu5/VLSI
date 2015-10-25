@@ -51,7 +51,7 @@ def generateDecoder(n, _GATE):
 	return mat,topo,pi
 
 
-n=3
+n=2
 grmat,topo,pi = generateDecoder(n, _GATE)
 
 nMatrix = n+n+(1<<n)
