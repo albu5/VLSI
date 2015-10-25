@@ -3,7 +3,7 @@
 # EE677 VLSI Project 
 # Graph for implementation of generic Decoder
 # Written by Shashank Gangrade 
-# The logic cicuit of Encoder is one layer of NOT Gates for each inputs, followed by a layer of AND gates
+# The logic cicuit of decoder is one layer of NOT Gates for each inputs, followed by a layer of AND gates
 
 # n is the size of decoder
 # n bits input 2^n bits output
@@ -49,6 +49,7 @@ def generateDecoder(n, _GATE):
 				mat[y][2*n+x] = _GATE['and']
 
 	return mat,topo,pi
+
 
 n=3
 grmat,topo,pi = generateDecoder(n, _GATE)
