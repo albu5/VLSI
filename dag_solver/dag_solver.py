@@ -1,31 +1,29 @@
 #!/usr/bin/python
 
 # EE677 VLSI Project 
-# This function call, fills a single LUT 
-# with values according to definition of input subgraph
+# This function call will evaluate a DAG graph to check its correctness 
 
 # Written by Shashank Gangrade 
 
 _GATE = {'0':0, '1':1, 'and':2, 'nand':3, 'or':4, 'nor':5, 'xor':6, 'xnor':7}
 
 
-# subgraph : adjacency matrix for small subgraphs with 
-# at most 5 inputs and 1 output
+# graph : adjacency matrix for DAG graph 
+
 # input : List of input nodes
 # topo_order : Topological order in subgraph
 # output : The output node
 
-# The protocol for subgraph/nodes is similar to programming assignment
-# This currently supports
+# The protocol for graph/nodes is similar to programming assignment
 
-def generateLUT(subgraph, input_nodes, topo_order, output_node):
+def evaluateDAG(subgraph, input_nodes, topo_order, output_node):
 	
 	# input in the list 
 	# pi is the number of inut nodes in graph which are not neccecarily 5
 	pi = len(input_nodes)
 
-	LUT_size = 5					# LUT by definition is 5 input
-	LUT_array = (1<<5);				# Size of final LUT Array (32)
+	LUT_size = pi					# LUT by definition is 5 input
+	LUT_array = (1<<pi);			# Size of final LUT Array (32)
 	
 	num_sig = len(subgraph)			# Number of signals in graph
 	sigval = [-1 for i in range(num_sig)]
@@ -128,22 +126,55 @@ def nodeSolver( gate, node_temp_inputs, temp_input ) :
 
 	return sigval
 
+
+# function call to generate a Adjacency Matrix of DAG for a given combinational circuit
+
+def generateDecoder(n, _GATE):
+	nMatrix = n+n+(1<<n)
+	mat  = [[-1 for i in range(nMatrix)]for i in range(nMatrix)]
+	# mat is the adjacency matrix which contains the decription for DAG defining a decoder
+
+	# Defining first layer connections of NOT gates of each input
+	# NOR with one input is NOT
+	for z in range(n):
+		mat[z][z+n] = _GATE['nor']	
+
+	# Defining secong layer of a set of AND gates
+	# The inputs of AND gate will be according to boolean representation of its index in Decoder Outputs
+	# xth Decoder output will be AND gate with 0 meaning connection from input or 1 meaning connection from input bar
+
+	pi = [];
+	topo = [];
+
+	for i in range(n):
+		pi.append(i)
+
+	for i in range(nMatrix):
+		topo.append(i)
+
+
+	for x in range(1<<n):
+		temps = bin(x)[2:].zfill(n)
+		tempi = map(int, temps) 
+
+		for y in range(n):
+			if tempi[y] == 0 :
+				mat[n+y][2*n+x] = _GATE['and']
+
+			elif tempi[y] == 1 :
+				mat[y][2*n+x] = _GATE['and']
+
+	return mat,topo,pi
+
 ## Main Function starts from here, modify to view changes 
 
-nodes = 6
-sub  = [[-1 for i in range(nodes)]for i in range(nodes)]
-sub[0][5] = 6
-sub[1][5] = 6
-sub[2][5] = 6
-sub[3][5] = 6
-sub[4][5] = 6
+n=2
+grmat,topo,pi = generateDecoder(n, _GATE)
 
-input_nodes = [0, 1, 2, 3, 4]
-topo_order = [0, 1, 2, 3, 4, 5]
-output_node = 5
+output_node = 4
+LUT, input_list = evaluateDAG(grmat, pi, topo, output_node)
 
-LUT, input_list = generateLUT(sub, input_nodes, topo_order, output_node)
-
-for i in range(32):
+for i in range(4):
 	print (input_list[i])
 	print (LUT[i])
+
