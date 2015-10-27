@@ -19,7 +19,15 @@ _GATE = {'0':0,
          'xor':6,
          'xnor':7}
 
-def generateAddder(size, _GATE):
+def generateAddder(size):
+    _GATE = {'0':0,
+         '1':1,
+         'and':2,
+         'nand':3,
+         'or':4,
+         'nor':5,
+         'xor':6,
+         'xnor':7}
     # init grmat which contains the graph, topo order and pi_list
     grmat = [[-1 for x in range(7*size)] for x in range(7*size)] 
     topo_order = [];
@@ -117,7 +125,9 @@ def generateAddder(size, _GATE):
 
     return grmat, topo_order, pi_list
 
-grmat, topo, pi = generateAddder(4, _GATE)
+# Uncomment to view a adder DAG
+'''
+grmat, topo, pi = generateAddder(4)
 
 
 for rows in grmat:
@@ -128,3 +138,4 @@ for rows in grmat:
         else:
             mystring = mystring + str(nodes) + ' '
     print(mystring)
+'''

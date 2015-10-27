@@ -8,8 +8,6 @@
 
 # Ashish
 # High = 1, Low = 0, Undefined = -1
-_GATE = {'0':0, '1':1, 'and':2, 'nand':3, 'or':4, 'nor':5, 'xor':6, 'xnor':7}
-
 def logic_eval (inlist, gate):
     _GATE = {'0':0, '1':1, 'and':2, 'nand':3, 'or':4, 'nor':5, 'xor':6, 'xnor':7}
 
