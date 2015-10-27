@@ -1,4 +1,4 @@
-﻿#1. M[i][j] = -1 invalid (no) edge
+#1. M[i][j] = -1 invalid (no) edge
 #2. M[i][j] = 0 constant 0 at node j
 #3. M[i][j] = 1 constant 1 at node j
 #4. M[i][j] = 2 and gate at node j
@@ -7,8 +7,8 @@
 #7. M[i][j] = 5 nor gate at node j
 #8. M[i][j] = 6 xor gate at node j
 #9. M[i][j] = 7 xnor gate at node j
-from __future__ import print_function
-import sys
+#from __future__ import print_function
+#import sys
 
 _GATE = {'0':0,
          '1':1,
@@ -21,7 +21,7 @@ _GATE = {'0':0,
 
 def generateAddder(size, _GATE):
     # init grmat which contains the graph, topo order and pi_list
-    grmat = [[9 for x in range(7*size)] for x in range(7*size)] 
+    grmat = [[-1 for x in range(7*size)] for x in range(7*size)] 
     topo_order = [];
     pi_list = [];
 
@@ -119,14 +119,12 @@ def generateAddder(size, _GATE):
 
 grmat, topo, pi = generateAddder(4, _GATE)
 
-print topo
-print pi
-
 
 for rows in grmat:
+    mystring = ''
     for nodes in rows:
-        if(nodes == 9):
-            print('.', end=' ')
+        if(nodes == -1):
+            mystring = mystring + '.' + ' '
         else:
-            print(nodes, end=' ')
-    print('', end = '\n')
+            mystring = mystring + str(nodes) + ' '
+    print(mystring)
