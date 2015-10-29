@@ -6,7 +6,7 @@
 import math
 
 # n-bit encoder assumed, logn outputs
-n = 8
+n = 16
 k = int(math.log(n,2))
 output = [[0]*k]*n
 encoder_circuit = [[] for x in range(k)]
@@ -28,3 +28,6 @@ for entry_index, entry in enumerate(output):
 print encoder_circuit
 
 # encoder_circuit stores various outputs in terms of input signals that need to be fed into an or gate.
+# k outputs, each with n/2 inputs connected to an OR gate
+
+
