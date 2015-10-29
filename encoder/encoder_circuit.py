@@ -31,3 +31,5 @@ print encoder_circuit
 # k outputs, each with n/2 inputs connected to an OR gate
 
 
+
+
