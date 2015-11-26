@@ -41,9 +41,9 @@ dag_graph = [[-1 for s in range(nodes)] for s in range(nodes)]
 for i,e in enumerate(reversed(encoder_circuit)):
 	for j in e:
 		dag_graph[i+n][j] = 4
-		dag_graph[j][i+n] = 4
+	#	dag_graph[j][i+n] = 4
 
 
-pprint (dag_graph)
+print dag_graph
 
 
