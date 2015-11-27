@@ -50,7 +50,7 @@ dag_graph4 = [[-1,2,2,2,2,2,2,2,2],
 
 # dag for encoder
 
-_GATE = {'0':0, '1':1, 'and':4, 'nand':3, 'or':4, 'nor':5, 'xor':6, 'xnor':7}
+_GATE = {'0':0, '1':1, 'and':2, 'nand':3, 'or':4, 'nor':5, 'xor':6, 'xnor':7}
 
 
 def printgraph(ngraph):
@@ -76,13 +76,13 @@ def extenddag(dag,adds):
 def decompose(dag_graph, ls):
 	original_size = len(dag_graph)
 	f = ls - 1 
+	topo = []
 
 	for ind, i in enumerate(dag_graph):
 		j = onlygates(i)
 		numand = j.count(_GATE['and'])
 
 		if numand > ls:
-			# print i
 			newnod = original_size - 1
 			nnumand = int(numand/f) # consecutive and gates
 			rnumand = numand%f		# extra inputs in first one
@@ -93,7 +93,6 @@ def decompose(dag_graph, ls):
 
 			for g in range(gatesadded):
 				dag_graph = extenddag(dag_graph,-1)
-				#print "yo"
 
 			indexes = [k for k,x in enumerate(i) if x == _GATE['and']]
 			
@@ -120,15 +119,12 @@ def decompose(dag_graph, ls):
 				except Exception, e:
 					pass
 			original_size = len(dag_graph)
-			# print rnumand
-			# printgraph(dag_graph)
-
 
 	printgraph(dag_graph)
 
 
 printgraph(dag_graph5)
-print "--------------------"
+print "------------------------------"
 decompose(dag_graph5, 3)
 
 
