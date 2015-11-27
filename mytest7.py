@@ -8,6 +8,7 @@ Created on Sun Nov 22 13:37:27 2015
 from adder.adder import generateAdder
 from techMap.genCutset import genCutset
 from techMap.trimCutset import trimCutset
+from utils.truth import truth
 
 #create graph
 '''
@@ -26,6 +27,8 @@ graph[4][6] = 1
 graph[5][7] = 1
 '''
 graph, topo_order, pi_list = generateAdder(2)
+
+#def LUTfit(graph, topo_order, pi_list, K, filename):
 
 #obtain primary outputs
 po_list = []
@@ -104,12 +107,16 @@ def fitnodes(graph, topo_order, pi_list, po_list, ncutsets, ngraph, ntopo_order,
                 #replace this by lut number
             text_file.write(".names " + (" ").join(str(somex) for somex in (inpnodes+[node])))
             text_file.write("\n")
-            #print truth table
-            
+            truthin, truthout = truth(graph, inpnodes, node)
+            for idx in range(len(truthout)):
+                if truthout[idx] == 1:
+                    text_file.write("".join(str(z) for z in truthin[idx]) +
+                     " 1\n")
+                        
         else:
             npi_list.append(node)
             
-    if (len(new_po_list)>0)&(count<20):
+    if (len(new_po_list)>0)&(count<1024):
         print "new po list", new_po_list
         fitnodes(graph, topo_order, pi_list, new_po_list, ncutsets, ngraph, ntopo_order, npi_list, K, text_file, count)
 
