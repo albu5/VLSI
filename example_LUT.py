@@ -23,5 +23,5 @@ graph[4][5] = 1
 graph[4][6] = 1
 graph[5][7] = 1
 '''
-graph, topo_order, pi_list = generateAdder(2)
-ngraph, ntopo_order, npi_list = LUTfit(graph, topo_order, pi_list, 4, "myadder2.blif")
+graph, topo_order, pi_list = generateAdder(4)
+ngraph, ntopo_order, npi_list = LUTfit(graph, topo_order, pi_list, 4, "4bit_adder_LUTsize_4.blif")
