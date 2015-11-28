@@ -9,7 +9,11 @@ from copy import deepcopy
 LUTsize = 5
 dag_graph3 = [[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, 4, -1, 4, -1, 4, -1, 4, -1, 4, -1, 4, -1, 4, -1, 4, -1, -1, -1, -1], [-1, -1, 4, 4, -1, -1, 4, 4, -1, -1, 4, 4, -1, -1, 4, 4, -1, -1, -1, -1], [-1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, 4, 4, 4, 4, -1, -1, -1, -1]]
 
-dag_graph5 = [[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, 4, -1, 4, -1, 4, -1, 4, -1, -1, -1], [-1, -1, 4, 4, -1, -1, 4, 4, -1, -1, -1], [-1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1]]
+dag_graph5 = [[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], [-1, 4, -1, 4, -1, 4, -1, 4, -1, -1, -1], [-1, -1, 4, 4, -1, -1, 4, 4, -1, -1, -1], [-1, -1, -1, -1, 2, 2, 2, 2, -1, -1, -1]]
+
+pi = [0, 1, 2, 3, 4, 5, 6, 7]
+po = [8, 9, 10]
+
 
 # 10
 dag_graph1 = [[-1,2,2,2,2,2,2,2,2,2,2],
@@ -80,51 +84,113 @@ def decompose(dag_graph, ls):
 
 	for ind, i in enumerate(dag_graph):
 		j = onlygates(i)
-		numand = j.count(_GATE['and'])
+		for gate in ['and', 'or']:
+			numand = j.count(_GATE[gate])
 
-		if numand > ls:
-			newnod = original_size - 1
-			nnumand = int(numand/f) # consecutive and gates
-			rnumand = numand%f		# extra inputs in first one
-			gatesadded = nnumand
+			if numand > ls:
+				newnod = original_size - 1
+				nnumand = int(numand/f) # consecutive and gates
+				rnumand = numand%f		# extra inputs in first one
+				gatesadded = nnumand
 
-			if rnumand == 0:
-				rnumand = f
+				if rnumand == 0:
+					rnumand = f
 
-			for g in range(gatesadded):
-				dag_graph = extenddag(dag_graph,-1)
+				for g in range(gatesadded):
+					dag_graph = extenddag(dag_graph,-1)
 
-			indexes = [k for k,x in enumerate(i) if x == _GATE['and']]
-			
-			for nog in range(rnumand):
-				indexes.pop(0)
+				indexes = [k for k,x in enumerate(i) if x == _GATE[gate]]
+				
+				for nog in range(rnumand):
+					indexes.pop(0)
 
-			# setting only reminder number of gates in that level
-			for u in indexes:
-				dag_graph[ind][u] = -1
+				# setting only reminder number of gates in that level
+				for u in indexes:
+					dag_graph[ind][u] = -1
 
-			dag_graph[ind][original_size] = _GATE['and']
+				dag_graph[ind][original_size] = _GATE[gate]
 
-			for h in range(nnumand):
-				for ul in range(f):
+				for h in range(nnumand):
+					if h+original_size not in topo:
+						topo.append(h+original_size)
+					for ul in range(f):
+						try:
+							inp1 = indexes.pop(0)
+							dag_graph[h+original_size][inp1] = _GATE[gate]
+						except Exception, e:
+							pass
+
+				for il in range(original_size,original_size+gatesadded+1):
 					try:
-						inp1 = indexes.pop(0)
-						dag_graph[h+original_size][inp1] = _GATE['and']
+						dag_graph[il][il+1] = _GATE[gate]
+						if il+1 not in topo:
+							topo.append(il+1)
+
 					except Exception, e:
 						pass
+				original_size = len(dag_graph)
 
-			for il in range(original_size,original_size+gatesadded+1):
-				try:
-					dag_graph[il][il+1] = _GATE['and']
-				except Exception, e:
-					pass
-			original_size = len(dag_graph)
+		if ind not in topo:
+			topo.append(ind)
 
 	printgraph(dag_graph)
+	print topo
+	return dag_graph, topo
+
 
 
 printgraph(dag_graph5)
 print "------------------------------"
-decompose(dag_graph5, 3)
+dg,tp = decompose(dag_graph5, 3)
 
 
+def graph2blif(graph, toporder, pilist, polist):
+	toporder.reverse()
+	rev = toporder
+
+	# initial definitions
+	fo = open("bp.blif", "w")
+	fo.write(".model graph\n")
+	fo.write(".inputs "+" ".join([str(x) for x in pilist])+"\n")
+	fo.write(".outputs "+" ".join([str(x) for x in polist])+"\n")
+	
+	# recursive definition for truth tables
+	for node in rev:
+		inplist = []
+		gate = -1
+		for i in range(len(graph)):
+			if graph[i][node]>=0 :
+				inplist.append(i)
+				gate = graph[i][node]
+		if inplist:
+			fo.write(".names "+" ".join([str(x) for x in inplist+[node]])+"\n")
+			if gate == 2:
+				mystring = [str(1) for j in inplist]
+				mystring = "".join(mystring)
+				mystring = mystring + " 1"
+				fo.write(mystring+"\n") 		
+			if gate == 4:
+				for k in range(len(inplist)):
+					mystring = ["-" for j in inplist]
+					mystring[k] = str(1)
+					mystring = "".join(mystring)
+					mystring = mystring + " 1"
+					fo.write(mystring+"\n") 		
+			if gate == 5:
+				mystring = [str(0) for j in inplist]
+				mystring = "".join(mystring)
+				mystring = mystring + " 1"
+				fo.write(mystring+"\n")  	
+			if gate == 3:
+				for k in range(len(inplist)):
+					mystring = ["-" for j in inplist]
+					mystring[k] = str(0)
+					mystring = "".join(mystring)
+					mystring = mystring + " 1"
+					fo.write(mystring+"\n") 					
+
+	fo.write(".end")
+	fo.close()
+
+
+graph2blif(dg,tp,pi,po)

@@ -1,8 +1,9 @@
 def graph2blif(graph, toporder, pilist, polist):
-	rev = toporder.reverse()
+	toporder.reverse()
+	rev = toporder
 
 	# initial definitions
-	fo = open("blif.txt", "w")
+	fo = open("bp.blif", "w")
 	fo.write(".model graph\n")
 	fo.write(".inputs "+" ".join([str(x) for x in pilist])+"\n")
 	fo.write(".outputs "+" ".join([str(x) for x in polist])+"\n")
@@ -16,9 +17,9 @@ def graph2blif(graph, toporder, pilist, polist):
 				inplist.append(i)
 				gate = graph[i][node]
 		if inplist:
-			fo.write(".names "+" ".join([str(x) for x in inplist+[node])+"\n")
+			fo.write(".names "+" ".join([str(x) for x in inplist+[node]])+"\n")
 			if gate == 2:
-				mystring = [1 for j in inplist]
+				mystring = [str(1) for j in inplist]
 				mystring = "".join(mystring)
 				mystring = mystring + " 1"
 				fo.write(mystring+"\n") 		
@@ -26,10 +27,11 @@ def graph2blif(graph, toporder, pilist, polist):
 				for k in range(len(inplist)):
 					mystring = ["-" for j in inplist]
 					mystring[k] = str(1)
+					mystring = "".join(mystring)
 					mystring = mystring + " 1"
 					fo.write(mystring+"\n") 		
 			if gate == 5:
-				mystring = [0 for j in inplist]
+				mystring = [str(0) for j in inplist]
 				mystring = "".join(mystring)
 				mystring = mystring + " 1"
 				fo.write(mystring+"\n")  	
@@ -37,11 +39,9 @@ def graph2blif(graph, toporder, pilist, polist):
 				for k in range(len(inplist)):
 					mystring = ["-" for j in inplist]
 					mystring[k] = str(0)
+					mystring = "".join(mystring)
 					mystring = mystring + " 1"
 					fo.write(mystring+"\n") 					
 
 	fo.write(".end")
 	fo.close()
-
-
-
