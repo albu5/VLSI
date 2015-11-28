@@ -25,7 +25,7 @@ for entry_index, entry in enumerate(output):
 			if entry_index not in encoder_circuit[i]:
 				encoder_circuit[i].append(entry_index)
 
-#print encoder_circuit
+# print encoder_circuit
 
 # encoder_circuit stores various outputs in terms of input signals that need to be fed into an or gate.
 # k outputs, each with n/2 inputs connected to an OR gate
@@ -46,4 +46,8 @@ for i,e in enumerate(reversed(encoder_circuit)):
 
 print dag_graph
 
+pilist = range(0,n)
+polist = range(n,n+k)
 
+print pilist
+print polist
