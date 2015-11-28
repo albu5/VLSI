@@ -44,7 +44,7 @@ def decompose(dag_graph, ls):
 				newnod = original_size - 1
 				nnumand = int(numand/f) # consecutive and gates
 				rnumand = numand%f		# extra inputs in first one
-				gatesadded = nnumand
+				gatesadded = nnumand-1
 
 				if rnumand == 0:
 					rnumand = f
@@ -64,6 +64,7 @@ def decompose(dag_graph, ls):
 				dag_graph[ind][original_size] = _GATE[gate]
 
 				for h in range(nnumand):
+
 					if h+original_size not in topo:
 						topo.append(h+original_size)
 					for ul in range(f):
@@ -78,7 +79,6 @@ def decompose(dag_graph, ls):
 						dag_graph[il][il+1] = _GATE[gate]
 						if il+1 not in topo:
 							topo.append(il+1)
-
 					except Exception, e:
 						pass
 				original_size = len(dag_graph)
@@ -87,7 +87,11 @@ def decompose(dag_graph, ls):
 			topo.append(ind)
 
 	printgraph(dag_graph)
-	print topo
-	return dag_graph, topo
+	z = len(dag_graph)
+	toponew = []
+	for ol in topo:
+		if ol<z:
+			toponew.append(ol)
+	return dag_graph, toponew
 
 

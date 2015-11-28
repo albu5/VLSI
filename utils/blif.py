@@ -1,9 +1,9 @@
-def graph2blif(graph, toporder, pilist, polist):
+def graph2blif(graph, toporder, pilist, polist,fn):
 	toporder.reverse()
 	rev = toporder
 
 	# initial definitions
-	fo = open("bp.blif", "w")
+	fo = open(fn, "w")
 	fo.write(".model graph\n")
 	fo.write(".inputs "+" ".join([str(x) for x in pilist])+"\n")
 	fo.write(".outputs "+" ".join([str(x) for x in polist])+"\n")
