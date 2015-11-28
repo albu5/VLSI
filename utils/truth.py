@@ -6,8 +6,10 @@ Created on Wed Oct 28 01:26:51 2015
 """
 
 # This routine will form a LUT out of a graph
-# Inputs: graph, pi_list, out_node?, topo_order
-# Ideally there should be only one out_node in graph
+# LUT is characterized by truth table, so this
+# function return a truth table
+# Inputs: graph, input node list, out_node
+# Ideally there should be only one out_node
 # Outputs: truth_table
 
 from utils.decbin import dec2bin, bin2dec

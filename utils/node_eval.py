@@ -1,7 +1,7 @@
 # VLSI CAD Project
-# Inputs: graph, topo_order, input sequence as input
-# inputs sequence should be same as in pi_list and topo_order
-# Outputs: output sequence
+# Inputs: graph, imput list of input nodes, node to be evaluated, input sequence as input
+# input sequence should have same ordering as in input list
+# Outputs: output of the gate
 
 # We assume primary inputs as first 'npi' nodes in topo_order
 # We assume primary outputs as nodes with zero outdegree

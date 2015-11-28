@@ -7,9 +7,14 @@
 #7. M[i][j] = 5 nor gate at node j
 #8. M[i][j] = 6 xor gate at node j
 #9. M[i][j] = 7 xnor gate at node j
-#from __future__ import print_function
-#import sys
 
+'''
+This function generates a n-bit ripple carry adder DAG
+function inputs: n (no. of bits in one of the input numbers)
+funtion outputs:    graph (adjacency matrix with convention described in README.md)
+                    topo_order (list of nodes of graph in topological order)
+                    pi_list (list of primary input nodes)
+'''
 def generateAdder(size):
     _GATE = {'0':0,
          '1':1,

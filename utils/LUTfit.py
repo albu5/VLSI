@@ -4,6 +4,11 @@ Created on Sun Nov 22 13:37:27 2015
 
 @author: Ashish
 """
+"""
+this function return a new graph and its topological ordering
+of nodes and prmary inputs by fitting K-bit LUTs into the
+original graph and writes corresponding blif file in filename.blif
+"""
 
 from techMap.genCutset import genCutset
 from techMap.trimCutset import trimCutset

@@ -5,6 +5,14 @@ Created on Sun Nov 22 12:04:23 2015
 @author: Ashish
 """
 
+'''
+This function trims a list of cuts to form a list of K-feasible cuts for a graph
+A K-feasible cut is a set of nodes (set A) such that a set of nodes (set B)
+where each node in B is input to some node of A has size (size of B) atmost K
+
+outputs: newCutsets (list of K-feasible cuts of each node)
+'''
+
 from sets import Set
 def trimCutset(graph, topo_order, pi_list, cutsets, K):
     newCutsets = []
@@ -26,6 +34,7 @@ def trimCutset(graph, topo_order, pi_list, cutsets, K):
     return newCutsets
 
 '''
+# test case
 from techMap.genCutset import genCutset
 from techMap.trimCutset import trimCutset
 

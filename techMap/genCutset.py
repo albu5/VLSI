@@ -4,6 +4,19 @@ Created on Fri Oct 30 04:37:07 2015
 
 @author: Ashish
 """
+'''
+cutset = genCutset(graph, topo_order, pi_list)
+
+This function generates a set of cuts of each node (say A),
+where a cut is defined as a set of nodes such that
+removing them will make it impossible to reach the
+node A from any primary input(s). Read the report
+for more details.
+
+outputs: cutset (list of lists of sets. Each list is
+a list of cuts corresponding to a node. Each cut is
+a set of nodes)
+'''
 
 from sets import Set
 
