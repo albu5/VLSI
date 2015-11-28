@@ -1,18 +1,13 @@
 # Updated Tasks
-Ashish: Write LUT mapping algo using maxflow/min cut
-Sagun: Write LUT mapping algo using bin packing approach
-Shashank: LUT Evaluation of Subgraph and DAG Evaluation
-Shardul: Generate graph for a shifter 
+Add comments to whatever file you contributed to.
 
 Everyone for each DAG Adjacency Matrix, also output topologial order and primary input nodes.
-
 # VLSI
 Created Git
 Create methods in python to generate graph (Adjacency Matrix) for:
 1. Decoder - Shashank
 2. Encoder - Sagun
 3. Adder - Ashish
-#4. Shardul (chose some for yourself)
 
 Adjacecny Matrix [M] conventions:
 for edge from node i to j:
@@ -45,3 +40,6 @@ NOTE:
 2. inverter is same as nor/nand/xnor gate with one input
 
 Suggestion - Please put all your files you made in some folder named after the topic you've picked up and send the pull request. Also, keep the source code as modular (function definitions instead of plain source code).
+
+# Examples
+example_LUT.py contains exaple of LUT fitting and writing blif file
